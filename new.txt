@@ -1,18 +1,231 @@
 new line
 new line 1
 
+angular run karne ke liye commands
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 source ~/.bashrc
-
 nvm install 14
-
 nvm use 14
-
 node -v
 nvm -v
-
 nvm alias default 14
-
-
 rm -rf node_modules package-lock.json
 npm install
+
+folder structure
+
+dotnetapp/
+│
+├── Controllers/
+│   ├── AdminController.cs
+│   ├── AuthController.cs
+│   ├── ContestsController.cs
+│   ├── MatchesController.cs
+│   └── UserTeamsController.cs
+│
+├── Data/
+│   └── ApplicationDbContext.cs
+│
+├── Models/
+│   ├── ApplicationUser.cs
+│   ├── Contest.cs
+│   ├── Match.cs
+│   ├── MatchPlayer.cs
+│   ├── Player.cs
+│   ├── UserTeam.cs
+│   └── UserTeamPlayer.cs
+│
+├── Services/
+│   ├── IContestService.cs
+│   ├── ContestService.cs
+│   ├── IScoreService.cs
+│   └── ScoreService.cs
+│
+├── Properties/
+│   └── launchSettings.json
+│
+├── appsettings.json
+├── appsettings.Development.json
+├── Program.cs
+├── dotnetapp.csproj
+└── dotnetapp.sln
+
+
+
+angularapp/
+│
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── login/
+│   │   │   │   ├── login.component.ts
+│   │   │   │   ├── login.component.html
+│   │   │   │   └── login.component.css
+│   │   │   │
+│   │   │   ├── register/
+│   │   │   │   ├── register.component.ts
+│   │   │   │   ├── register.component.html
+│   │   │   │   └── register.component.css
+│   │   │   │
+│   │   │   ├── match-list/
+│   │   │   │   ├── match-list.component.ts
+│   │   │   │   ├── match-list.component.html
+│   │   │   │   └── match-list.component.css
+│   │   │   │
+│   │   │   ├── match-detail/
+│   │   │   │   ├── match-detail.component.ts
+│   │   │   │   ├── match-detail.component.html
+│   │   │   │   └── match-detail.component.css
+│   │   │   │
+│   │   │   ├── contest-detail/
+│   │   │   │   ├── contest-detail.component.ts
+│   │   │   │   ├── contest-detail.component.html
+│   │   │   │   └── contest-detail.component.css
+│   │   │   │
+│   │   │   ├── team-selection/
+│   │   │   │   ├── team-selection.component.ts
+│   │   │   │   ├── team-selection.component.html
+│   │   │   │   └── team-selection.component.css
+│   │   │   │
+│   │   │   └── not-found/
+│   │   │       ├── not-found.component.ts
+│   │   │       ├── not-found.component.html
+│   │   │       └── not-found.component.css
+│   │   │
+│   │   ├── admin/
+│   │   │   ├── components/
+│   │   │   │   ├── admin-dashboard/
+│   │   │   │   │   ├── admin-dashboard.component.ts
+│   │   │   │   │   ├── admin-dashboard.component.html
+│   │   │   │   │   └── admin-dashboard.component.css
+│   │   │   │   │
+│   │   │   │   ├── admin-matches/
+│   │   │   │   │   ├── admin-matches.component.ts
+│   │   │   │   │   ├── admin-matches.component.html
+│   │   │   │   │   └── admin-matches.component.css
+│   │   │   │   │
+│   │   │   │   ├── admin-players/
+│   │   │   │   │   ├── admin-players.component.ts
+│   │   │   │   │   ├── admin-players.component.html
+│   │   │   │   │   └── admin-players.component.css
+│   │   │   │   │
+│   │   │   │   ├── admin-scores/
+│   │   │   │   │   ├── admin-scores.component.ts
+│   │   │   │   │   ├── admin-scores.component.html
+│   │   │   │   │   └── admin-scores.component.css
+│   │   │   │   │
+│   │   │   │   └── admin-results/
+│   │   │   │       ├── admin-results.component.ts
+│   │   │   │       ├── admin-results.component.html
+│   │   │   │       └── admin-results.component.css
+│   │   │   │
+│   │   │   ├── admin-routing.module.ts
+│   │   │   └── admin.module.ts
+│   │   │
+│   │   ├── services/
+│   │   │   ├── auth.service.ts
+│   │   │   ├── match.service.ts
+│   │   │   ├── contest.service.ts
+│   │   │   ├── user-team.service.ts
+│   │   │   ├── admin.service.ts
+│   │   │   └── toast.service.ts
+│   │   │
+│   │   ├── guards/
+│   │   │   ├── auth.guard.ts
+│   │   │   └── admin.guard.ts
+│   │   │
+│   │   ├── models/
+│   │   │   └── interfaces.ts
+│   │   │
+│   │   ├── shared/
+│   │   │   ├── components/
+│   │   │   │   ├── loading/
+│   │   │   │   │   ├── loading.component.ts
+│   │   │   │   │   ├── loading.component.html
+│   │   │   │   │   └── loading.component.css
+│   │   │   │   │
+│   │   │   │   └── toast/
+│   │   │   │       ├── toast.component.ts
+│   │   │   │       ├── toast.component.html
+│   │   │   │       └── toast.component.css
+│   │   │   │
+│   │   │   └── shared.module.ts
+│   │   │
+│   │   ├── app-routing.module.ts
+│   │   ├── app.component.ts
+│   │   ├── app.component.html
+│   │   ├── app.component.css
+│   │   └── app.module.ts
+│   │
+│   ├── assets/
+│   │   ├── images/
+│   │   └── styles/
+│   │       └── custom.css
+│   │
+│   ├── environments/
+│   │   ├── environment.ts
+│   │   └── environment.prod.ts
+│   │
+│   ├── index.html
+│   ├── main.ts
+│   ├── polyfills.ts
+│   └── styles.css
+│
+├── angular.json
+├── package.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.spec.json
+└── README.md
+
+# Create new Angular project
+ng new fantasy-cricket-ui --routing --style=css
+cd fantasy-cricket-ui
+
+# Add Bootstrap
+npm install bootstrap
+
+# Generate components
+npx ng generate component components/login
+npx ng generate component components/register
+npx ng generate component components/match-list
+npx ng generate component components/match-detail
+npx ng generate component components/contest-detail
+npx ng generate component components/team-selection
+npx ng generate component components/not-found
+
+# Generate services
+npx ng generate service services/auth
+npx ng generate service services/match
+npx ng generate service services/contest
+npx ng generate service services/user-team
+npx ng generate service services/admin
+npx ng generate service services/toast
+
+# Generate guards
+npx ng generate guard guards/auth
+npx ng generate guard guards/admin
+
+# Generate admin module
+npx ng generate module admin --routing
+npx ng generate component admin/components/admin-dashboard
+npx ng generate component admin/components/admin-matches
+npx ng generate component admin/components/admin-players
+npx ng generate component admin/components/admin-scores
+npx ng generate component admin/components/admin-results
+
+# Run the application
+ng serve
+
+mkdir -p src/app/models
+npx ng generate interface models/interfaces --skip-tests
+
+# Create shared module
+npx ng generate module shared --flat=false
+
+# Create loading component inside shared/components/loading
+npx ng generate component shared/components/loading --skip-tests
+
+# Create toast component inside shared/components/toast
+npx ng generate component shared/components/toast --skip-tests
