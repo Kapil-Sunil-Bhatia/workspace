@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using dotnetapp.Data;
 using dotnetapp.Services;
-using dotnetapp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace dotnetapp.Controllers
@@ -20,48 +19,23 @@ namespace dotnetapp.Controllers
         }
         
         [HttpGet]
-        public IActionResult GetAllMatches()
+        public IActionResult GetMatches()
         {
             var matches = _context.Matches.ToList();
             return Ok(matches);
         }
-
+        
         [HttpGet("{id}")]
         public IActionResult GetMatch(int id)
         {
-            var match = _context.Matches.Find(id);
+            var match = _context.Matches
+                .Include(m => m.MatchPlayers)
+                .ThenInclude(mp => mp.Player)
+                .FirstOrDefault(m => m.MatchId == id);
+                
             if (match == null) return NotFound();
+            
             return Ok(match);
-        }
-
-        [HttpPost]
-        public IActionResult CreateMatch([FromBody] Match model)
-        {
-            _context.Matches.Add(model);
-            _context.SaveChanges();
-            return Ok(model);
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult UpdateMatch(int id, [FromBody] Match model)
-        {
-            var match = _context.Matches.Find(id);
-            if (match == null) return NotFound();
-            match.TeamA = model.TeamA;
-            match.TeamB = model.TeamB;
-            match.Date = model.Date;
-            _context.SaveChanges();
-            return Ok(match);
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteMatch(int id)
-        {
-            var match = _context.Matches.Find(id);
-            if (match == null) return NotFound();
-            _context.Matches.Remove(match);
-            _context.SaveChanges();
-            return Ok(new { message = "Match deleted" });
         }
         
         [HttpGet("{id}/players")]

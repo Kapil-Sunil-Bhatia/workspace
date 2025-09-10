@@ -41,7 +41,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("http://localhost:4200")
+        builder.WithOrigins("https://8081-afdafeec333599263cdbaeceone.premiumproject.examly.io/")
                .AllowAnyMethod()
                .AllowAnyHeader()
                .AllowCredentials();

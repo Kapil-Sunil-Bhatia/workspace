@@ -84,57 +84,6 @@ namespace dotnetapp.Controllers
             _scoreService.DeclareResult(model.ContestId);
             return Ok(new { message = "Result declared" });
         }
-        
-        [HttpGet("matches")]
-        public IActionResult GetAllMatches()
-        {
-            var matches = _context.Matches.ToList();
-            return Ok(matches);
-        }
-
-        [HttpGet("matches/{matchId}")]
-        public IActionResult GetMatch(int matchId)
-        {
-            var match = _context.Matches.Find(matchId);
-            if (match == null) return NotFound();
-            return Ok(match);
-        }
-
-        [HttpPut("matches/{matchId}")]
-        public IActionResult UpdateMatch(int matchId, [FromBody] CreateMatchDto model)
-        {
-            var match = _context.Matches.Find(matchId);
-            if (match == null) return NotFound();
-            match.TeamA = model.TeamA;
-            match.TeamB = model.TeamB;
-            match.Date = model.Date;
-            _context.SaveChanges();
-            return Ok(match);
-        }
-
-        [HttpDelete("matches/{matchId}")]
-        public IActionResult DeleteMatch(int matchId)
-        {
-            var match = _context.Matches.Find(matchId);
-            if (match == null) return NotFound();
-            _context.Matches.Remove(match);
-            _context.SaveChanges();
-            return Ok(new { message = "Match deleted" });
-        }
-
-        [HttpGet("players")]
-        public IActionResult GetAllPlayers()
-        {
-            var players = _context.Players.ToList();
-            return Ok(players);
-        }
-
-        [HttpGet("contests")]
-        public IActionResult GetAllContests()
-        {
-            var contests = _context.Contests.ToList();
-            return Ok(contests);
-        }
     }
     
     public class CreateMatchDto

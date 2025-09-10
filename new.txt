@@ -1,2 +1,18 @@
 new line
 new line 1
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+source ~/.bashrc
+
+nvm install 14
+
+nvm use 14
+
+node -v
+nvm -v
+
+nvm alias default 14
+
+
+rm -rf node_modules package-lock.json
+npm install

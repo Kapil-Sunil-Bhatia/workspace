@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using dotnetapp.Services;
-using dotnetapp.Models;
 
 namespace dotnetapp.Controllers
 {
@@ -47,34 +46,6 @@ namespace dotnetapp.Controllers
             if (contest == null) return NotFound();
             return Ok(contest);
         }
-
-        // [HttpGet]
-        // public IActionResult GetAllContests()
-        // {
-        //     var contests = _contestService.GetAllContests();
-        //     return Ok(contests);
-        // }
-
-        // [HttpPut("{id}")]
-        // public IActionResult UpdateContest(int id, [FromBody] Contest model)
-        // {
-        //     var contest = _contestService.GetContestById(id);
-        //     if (contest == null) return NotFound();
-        //     contest.Name = model.Name;
-        //     contest.CreatedByUserId = model.CreatedByUserId;
-        //     contest.JoinedByUserId = model.JoinedByUserId;
-        //     _contestService.UpdateContest(contest);
-        //     return Ok(contest);
-        // }
-
-        // [HttpDelete("{id}")]
-        // public IActionResult DeleteContest(int id)
-        // {
-        //     var contest = _contestService.GetContestById(id);
-        //     if (contest == null) return NotFound();
-        //     _contestService.DeleteContest(contest);
-        //     return Ok(new { message = "Contest deleted" });
-        // }
     }
     
     public class CreateContestDto
@@ -82,3 +53,4 @@ namespace dotnetapp.Controllers
         public int MatchId { get; set; }
     }
 }
+ 
