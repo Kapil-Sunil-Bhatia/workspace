@@ -8,7 +8,7 @@ import { User, LoginRequest, RegisterRequest } from '../models/interfaces';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'https://localhost:5001/api/auth';
+  private baseUrl = 'https://8080-afdafeec333599263cdbaeceone.premiumproject.examly.io/api/Auth';
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 
