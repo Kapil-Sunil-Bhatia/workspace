@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using dotnetapp.Services;
 using dotnetapp.Data;
+using dotnetapp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace dotnetapp.Controllers
@@ -48,6 +49,50 @@ namespace dotnetapp.Controllers
             var score = _contestService.GetTeamScore(userTeamId);
             return Ok(new { score });
         }
+
+        [HttpGet]
+        public IActionResult GetAllUserTeams()
+        {
+            var userTeams = _context.UserTeams.ToList();
+            return Ok(userTeams);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetUserTeam(int id)
+        {
+            var userTeam = _context.UserTeams.Find(id);
+            if (userTeam == null) return NotFound();
+            return Ok(userTeam);
+        }
+
+        [HttpPost]
+        public IActionResult CreateUserTeam([FromBody] UserTeam model)
+        {
+            _context.UserTeams.Add(model);
+            _context.SaveChanges();
+            return Ok(model);
+        }
+
+        // [HttpPut("{id}")]
+        // public IActionResult UpdateUserTeam(int id, [FromBody] UserTeam model)
+        // {
+        //     var userTeam = _context.UserTeams.Find(id);
+        //     if (userTeam == null) return NotFound();
+        //     userTeam.Name = model.Name;
+        //     userTeam.UserId = model.UserId;
+        //     _context.SaveChanges();
+        //     return Ok(userTeam);
+        // }
+
+        // [HttpDelete("{id}")]
+        // public IActionResult DeleteUserTeam(int id)
+        // {
+        //     var userTeam = _context.UserTeams.Find(id);
+        //     if (userTeam == null) return NotFound();
+        //     _context.UserTeams.Remove(userTeam);
+        //     _context.SaveChanges();
+        //     return Ok(new { message = "User team deleted" });
+        // }
     }
     
     public class SubmitTeamDto
