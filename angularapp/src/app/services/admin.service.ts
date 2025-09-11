@@ -7,7 +7,7 @@ import { Match, MatchPlayer } from '../models/interfaces';
   providedIn: 'root'
 })
 export class AdminService {
-  private baseUrl = 'https://8080-afdafeec333599263cdbaeceone.premiumproject.examly.io/api/admin/';
+  private baseUrl = 'https://8080-afdafeec333599263cdbaeceone.premiumproject.examly.io/api/admin';
 
   constructor(private http: HttpClient) { }
 

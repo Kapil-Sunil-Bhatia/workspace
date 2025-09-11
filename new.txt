@@ -12,6 +12,7 @@ nvm -v
 nvm alias default 14
 rm -rf node_modules package-lock.json
 npm install
+npm start
 
 folder structure
 
