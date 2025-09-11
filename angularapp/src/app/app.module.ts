@@ -10,7 +10,8 @@ import { MatchDetailComponent } from './components/match-detail/match-detail.com
 import { ContestDetailComponent } from './components/contest-detail/contest-detail.component';
 import { TeamSelectionComponent } from './components/team-selection/team-selection.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
